@@ -83,11 +83,7 @@
               {
                 "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
                 "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',parameters('STORAGEACOUNTACCESSKEY'),';EndpointSuffix=core.windows.net')]"
-              },
-              {
-                "name": "WEBSITE_CONTENTSHARE",
-                "value": "[parameters('logicAppName')]"
-              },
+              },             
               {
                 "name": "WEBSITE_NODE_DEFAULT_VERSION",
                 "value": "~12"
