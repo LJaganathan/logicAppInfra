@@ -19,7 +19,7 @@
         "minLength": 3,
         "maxLength": 24
       },     
-      "storageaccountAccesskey": {
+      "STORAGEACOUNTACCESSKEY": {
         "type":"string"
       }
     },
@@ -66,7 +66,7 @@
               },
               {
                 "name": "AzureWebJobsStorage",
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',parameters('storageaccountAccesskey),';EndpointSuffix=core.windows.net')]"
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',parameters('STORAGEACOUNTACCESSKEY),';EndpointSuffix=core.windows.net')]"
               },
               {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -82,7 +82,7 @@
               },
               {
                 "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',parameters('storageaccountAccesskey');EndpointSuffix=core.windows.net')]"
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',parameters('STORAGEACOUNTACCESSKEY'),';EndpointSuffix=core.windows.net')]"
               },
               {
                 "name": "WEBSITE_CONTENTSHARE",
