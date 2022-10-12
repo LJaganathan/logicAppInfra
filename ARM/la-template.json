@@ -7,13 +7,7 @@
         "metadata": {
           "description": "The datacenter to use for the deployment."
         }
-      },
-      "environmentName": {
-        "type": "string"
-      },
-      "projectName": {
-        "type": "string"
-      },
+      },      
       "logicAppName": {
         "type": "string"
       },
@@ -24,19 +18,7 @@
         "type": "string",
         "minLength": 3,
         "maxLength": 24
-      },
-      "kind": {
-        "type": "string",
-        "defaultValue": "StorageV2"
-      },
-      "skuName": {
-        "type": "string",
-        "defaultValue": "Standard_LRS"
-      },
-      "skuTier": {
-        "type": "string",
-        "defaultValue": "Standard"
-      },
+      },     
       "storageaccountAccesskey": {
         "type":"string"
       }

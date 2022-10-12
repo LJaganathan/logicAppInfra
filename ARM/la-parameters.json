@@ -4,30 +4,15 @@
     "parameters": { 
         "location": {
             "value": "westus2"
-        },
-        "environmentName": {
-            "value": "env-name"
-        },
-        "projectName": {
-            "value": "project-name"
-        },
+        },       
         "logicAppName": {
-            "value": "la-name"
+            "value": "HelloWorldStnd01"
         },
         "appServicePlanName": {
             "value": "asp-name"
         },
         "storageName": {
-            "value": "storage-name"
-        },
-        "kind": {
-            "value": "StorageV2"
-        },
-        "skuName": {
-            "value": "Standard_LRS"
-        },
-        "skuTier": {
-            "value": "Standard"
+            "value": "tst2storercvrmsgstrgacc"
         },
         "storageaccountAccesskey":{
             "value": ""
