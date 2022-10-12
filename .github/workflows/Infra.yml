@@ -37,7 +37,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUB }}
         resourceGroupName:  ${{ secrets.RG_LA }}
         template: ARM/la-template.json  # Set this to the location of your template file
-        parameters: ARM/la-parameters.json storageaccountAccesskey=${{ secrets.STORAGEACOUNTACCESSKEY }}
+        parameters: ARM/la-parameters.json STORAGEACOUNTACCESSKEY=${{ secrets.STORAGEACOUNTACCESSKEY }}
         deploymentMode: Incremental
    
     # Deployment of template    
@@ -49,7 +49,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUB }}
         resourceGroupName: ${{ secrets.RG_LA }}
         template: ARM/connectors-template.json  # Set this to the location of your template file
-        parameters: ARM/connectors-parameters.json storageaccountAccesskey=${{ secrets.STORAGEACOUNTACCESSKEY }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
+        parameters: ARM/connectors-parameters.json STORAGEACOUNTACCESSKEY=${{ secrets.STORAGEACOUNTACCESSKEY }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
         deploymentMode: Incremental
 
     - name: Update Logic App Connections 
