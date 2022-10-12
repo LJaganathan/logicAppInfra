@@ -14,7 +14,7 @@
         "storageName": {
             "value": "tst2storercvrmsgstrgacc"
         },
-        "storageaccountAccesskey":{
+        "STORAGEACOUNTACCESSKEY":{
             "value": ""
         }
         }
