@@ -47,9 +47,9 @@ jobs:
       with:
         scope: resourcegroup  
         subscriptionId: ${{ secrets.AZURE_SUB }}
-        resourceGroupName: ${{ secrets.RG_CON }}
+        resourceGroupName: ${{ secrets.RG_LA }}
         template: ARM/connectors-template.json  # Set this to the location of your template file
-        parameters: ARM/connectors-parameters.json logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
+        parameters: ARM/connectors-parameters.json storageaccountAccesskey=${{ secerts.STORAGEACOUNTACCESSKEY }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
         deploymentMode: Incremental
 
     - name: Update Logic App Connections 
@@ -58,4 +58,4 @@ jobs:
         azcliversion: 2.0.72
         inlineScript: |
           az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "BLOB_CONNECTION_RUNTIMEURL=${{ steps.msdemoconn.outputs.blobendpointurl }}"
-          az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_CON }}"
+          az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_LA }}"
