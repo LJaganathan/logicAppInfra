@@ -57,6 +57,6 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az account set --name ${{ secrets.AZURE_SUB }}
+          az account set --subscription ${{ secrets.AZURE_SUB }}
           az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "BLOB_CONNECTION_RUNTIMEURL=${{ steps.msdemoconn.outputs.blobendpointurl }}"
           az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_LA }}"
