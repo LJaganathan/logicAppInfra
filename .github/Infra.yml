@@ -8,7 +8,7 @@ on:
   push:
     paths:
       - "ARM/**"
-      - ".github/workflows/Infra.yml"
+      - ".github/Infra.yml"
 
 jobs:
   DeployDev:
