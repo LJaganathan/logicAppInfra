@@ -13,6 +13,9 @@
         },
         "storageName": {
             "value": "tst2storercvrmsgstrgacc"
-        }        
+        },
+        "STORAGEACOUNTACCESSKEY": {
+            "value": ""
+        }
         }
 }
