@@ -27,9 +27,7 @@
       "type": "string"
     }
   },
-  "variables": {
-    "storage_account": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]"
-  },
+  
   "resources": [
     {
       "type": "Microsoft.Web/connections",
@@ -41,7 +39,7 @@
       "properties": {
         "displayName": "privatestorage",
         "parameterValues": {
-          "accountName": "[variables('storage_account')]",
+          "accountName": "[parameters('sa_name')]",
           "accessKey": "[parameters('STORAGEACOUNTACCESSKEY')]"
         },
         "api": {
