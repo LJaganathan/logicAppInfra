@@ -22,7 +22,7 @@
       "defaultValue": "azureblob",
       "type": "string"
     },
-    "STORAGEACOUNTACCESSKEY": {
+    "StorageAccountAccessKey": {
       "defaultValue": "azureblob",
       "type": "string"
     }
@@ -40,7 +40,7 @@
         "displayName": "privatestorage",
         "parameterValues": {
           "accountName": "[parameters('sa_name')]",
-          "accessKey": "[parameters('STORAGEACOUNTACCESSKEY')]"
+          "accessKey": "[parameters('StorageAccountAccessKey')]"
         },
         "api": {
           "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
