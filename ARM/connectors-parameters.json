@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "West Europe"
+            "value": "East US"
         },
         "logicAppSystemAssignedIdentityTenantId": {
             "value": "__1__"
@@ -12,7 +12,7 @@
             "value": "__2__"
         },
         "sa_name": {
-            "value": "tst2storercvrmsgstrgacc"
+            "value": "straccforstndlogicapps"
         },
         "connections_azureblob_name": {
             "value":"azureblob"

@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": { 
         "location": {
-            "value": "West Europe"
+            "value": "East US"
         },       
         "logicAppName": {
             "value": "HelloWorldStnd01"
         },
         "appServicePlanName": {
-            "value": "asp-name"
+            "value": "logicapp_ASPlan"
         },
         "storageName": {
-            "value": "tst2storercvrmsgstrgacc"
+            "value": "straccforstndlogicapps"
         },
         "StorageAccountAccessKey": {
             "value": ""
