@@ -17,7 +17,7 @@
         "connections_azureblob_name": {
             "value":"azureblob"
         },
-        "STORAGEACOUNTACCESSKEY": {           
+        "StorageAccountAccessKey": {           
             "value": ""
         }
     }
