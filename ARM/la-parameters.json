@@ -6,7 +6,7 @@
             "value": "eastus"
         },       
         "logicAppName": {
-            "value": "HelloWorldStnd"
+            "value": "HelloWorldStndLAPP"
         },
         "appServicePlanName": {
             "value": "logicapp_ASPlan"
