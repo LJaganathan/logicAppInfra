@@ -37,7 +37,7 @@ jobs:
         scope: resourcegroup  
         subscriptionId: ${{ secrets.AZURE_SUB }}
         #resourceGroupName:  ${{ secrets.RG_LA }}
-        resourceGroupName: ${{az group create --name secrets.RG_LA --location "eastus2"}}
+        resourceGroupName: ${az group create --name secrets.RG_LA --location "eastus2"}
         template: ARM/la-template.json  # Set this to the location of your template file
         #parameters: ARM/la-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }}
         parameters: ARM/la-parameters.json StorageAccountAccessKey=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-name $STORAGE_ACCOUNT_NAME --query '[0].value' -o tsv)
