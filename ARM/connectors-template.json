@@ -47,7 +47,7 @@
         }
       }
     },
-{
+    {
       "type": "Microsoft.Web/connections/accessPolicies",
       "apiVersion": "2016-06-01",
       "name": "[format('{0}/{1}', parameters('connections_azureblob_name'), parameters('logicAppSystemAssignedIdentityObjectId'))]",
@@ -64,8 +64,7 @@
           }
         }
       }
-   }
-
+    }
   ],
   "outputs": {
     "blobendpointurl": {
