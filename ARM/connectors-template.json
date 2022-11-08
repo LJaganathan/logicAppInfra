@@ -45,11 +45,7 @@
           "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
         }
       }
-    }
-    
- 
- }
-
+    }  
   ],
   "outputs": {
     "blobendpointurl": {
