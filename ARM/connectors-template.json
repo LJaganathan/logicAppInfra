@@ -16,7 +16,7 @@
     },
     "sa_name": {
       "defaultValue": "storage name",
-      "type": "string"
+      "type": "string",
       "minLength": 3,
       "maxLength": 24
     },
