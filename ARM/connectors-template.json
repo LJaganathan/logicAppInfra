@@ -17,6 +17,8 @@
     "sa_name": {
       "defaultValue": "storage name",
       "type": "string"
+      "minLength": 3,
+      "maxLength": 24
     },
     "connections_azureblob_name": {
       "defaultValue": "azureblob",
