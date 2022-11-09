@@ -88,7 +88,7 @@
         "location": "[parameters('location')]",
         "dependsOn": [
           "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-          "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]",          
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"          
         ],
         "kind": "workflowapp,functionapp",
         "identity": {
@@ -109,7 +109,7 @@
               },
               {
                 "name": "AzureFunctionsJobHost__extensionBundle__version",
-                "value": "[1.*, 2.0.0)"
+                "value": "(1.*, 2.0.0)"
               },
               {
                 "name": "AzureWebJobsStorage",
