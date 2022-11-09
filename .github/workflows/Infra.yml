@@ -53,7 +53,7 @@ jobs:
         resourceGroupName: ${{ secrets.RG_LA }}
         template: ARM/connectors-template.json  # Set this to the location of your template file
         #parameters: ARM/connectors-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
-        parameters: ARM/connectors-parameters.json logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
+        parameters: ARM/connectors-parameters.json sa_name=${{ steps.ladeploy.outputs.StorageAccountName }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
         deploymentMode: Incremental
 
     - name: Update Logic App Connections 
