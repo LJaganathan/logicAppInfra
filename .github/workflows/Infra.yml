@@ -27,38 +27,38 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    # Deployment of template  
-    #- name: Deploy Logic App Resources
-      #uses: Azure/arm-deploy@v1
-      #id: ladeploy
-      #with:
+     # Deployment of template  
+    - name: Deploy Logic App Resources
+      uses: Azure/arm-deploy@v1.0.1
+      id: ladeploy
+      with:
         # You can change these environment variables for your configuration:   AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP
-        #scope: subscription
+        scope: resourcegroup
         #region: ${{ secrets.AZURE_LOCATION }}
-        #subscriptionId: ${{ secrets.AZURE_SUB }}
-        #resourceGroupName:  ${{ secrets.RG_LA }}        
-        #template: ARM/la-template.json  # Set this to the location of your template file
+        subscriptionId: ${{ secrets.AZURE_SUB }}
+        resourceGroupName:  ${{ secrets.RG_LA }}        
+        template: ARM/la-template.json  # Set this to the location of your template file
         #parameters: ARM/la-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }}        
-        #parameters: ARM/la-parameters.json        
-        #deploymentMode: Incremental
+        parameters: ARM/la-parameters.json        
+        deploymentMode: Incremental
    
     # Deployment of template    
     - name: Deploy Connector Resources 
       id: msdemoconn
-      uses: Azure/arm-deploy@v1
+      uses: Azure/arm-deploy@v1.0.1
       with:
-        scope: subscription
-        region: ${{ secrets.AZURE_LOCATION }}
+        scope: resourcegroup
+        #region: ${{ secrets.AZURE_LOCATION }}
         subscriptionId: ${{ secrets.AZURE_SUB }}
-        #resourceGroupName: ${{ secrets.RG_LA }}
+        resourceGroupName: ${{ secrets.RG_LA }}
         template: ARM/connectors-template.json  # Set this to the location of your template file
         #parameters: ARM/connectors-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }} logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
         parameters: ARM/connectors-parameters.json logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
         deploymentMode: Incremental
 
-    #- name: Update Logic App Connections 
-      #uses: azure/CLI@v1
-      #with:      
-        #inlineScript: |               
-          #az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "BLOB_CONNECTION_RUNTIMEURL=${{ steps.msdemoconn.outputs.blobendpointurl }}"
-          #az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_LA }}"
+    - name: Update Logic App Connections 
+      uses: azure/CLI@v1
+      with:      
+        inlineScript: |               
+          az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "BLOB_CONNECTION_RUNTIMEURL=${{ steps.msdemoconn.outputs.blobendpointurl }}"
+          az functionapp config appsettings set --name ${{ steps.ladeploy.outputs.LAname }} --resource-group  ${{ secrets.RG_LA }} --settings "WORKFLOWS_RESOURCE_GROUP_NAME=${{ secrets.RG_LA }}"
