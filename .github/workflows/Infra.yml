@@ -28,19 +28,19 @@ jobs:
       uses: actions/checkout@v1
 
     # Deployment of template  
-    - name: Deploy Logic App Resources
-      uses: Azure/arm-deploy@v1
-      id: ladeploy
-      with:
+    #- name: Deploy Logic App Resources
+      #uses: Azure/arm-deploy@v1
+      #id: ladeploy
+      #with:
         # You can change these environment variables for your configuration:   AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP
-        scope: subscription
-        region: ${{ secrets.AZURE_LOCATION }}
-        subscriptionId: ${{ secrets.AZURE_SUB }}
+        #scope: subscription
+        #region: ${{ secrets.AZURE_LOCATION }}
+        #subscriptionId: ${{ secrets.AZURE_SUB }}
         #resourceGroupName:  ${{ secrets.RG_LA }}        
         #template: ARM/la-template.json  # Set this to the location of your template file
         #parameters: ARM/la-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }}        
         #parameters: ARM/la-parameters.json        
-        deploymentMode: Incremental
+        #deploymentMode: Incremental
    
     # Deployment of template    
     - name: Deploy Connector Resources 
