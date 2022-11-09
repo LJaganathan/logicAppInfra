@@ -154,6 +154,10 @@
       "LAname": {
         "type": "string",
         "value": "[parameters('logicAppName')]"
+      },
+      "StorageAccountName": {
+         "type": "string"
+         "value": "[parameters('storageName')]"
       }
     }
 }
