@@ -2,12 +2,18 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "rg_name":{
+        "resourceGroup":{
             "value": "logic_apps_eus_rg"
         },
         "location": {
             "value": "eastus"
-        },       
+        },  
+         "environmentName": {
+            "value": "env-name"
+        },
+        "projectName": {
+            "value": "project-name"
+        }
         "logicAppName": {
             "value": "HelloWorldStndLAPP"
         },
@@ -16,6 +22,15 @@
         },
         "storageName": {
             "value": "straccforstndlogicapps"
-        }        
+        },
+        "kind": {
+            "value": "StorageV2"
+        },
+        "skuName": {
+            "value": "Standard_LRS"
+        },
+        "skuTier": {
+            "value": "Standard"
+          }
         }
 }
