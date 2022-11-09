@@ -142,7 +142,7 @@
         }
       }
     ],
-    "outputs": {
+    "outputs": {        
       "logicAppSystemAssignedIdentityTenantId": {
         "type": "string",
         "value": "[subscription().tenantid]"
