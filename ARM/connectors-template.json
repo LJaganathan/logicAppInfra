@@ -80,13 +80,15 @@
       "apiVersion": "2016-06-01",
       "name": "[parameters('connections_azureblob_name')]",
       "location": "[parameters('location')]",
-      "kind": "V2"
-      "dependsOn": [],
+      "kind": "V2",
+      "dependsOn": [
+      "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
+      ],
       "properties": {
         "displayName": "privatestorage",
         "parameterValues": {
-          "accountName": "[parameters('sa_name')]",
-          "accessKey": "[parameters('StorageAccountAccessKey')]"
+          "accountName": "[variables('storage_account')]",
+          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('storage_account')), '2019-06-01').keys[0].value]"
         },
         "api": {
           "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
