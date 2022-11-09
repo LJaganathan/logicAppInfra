@@ -15,62 +15,21 @@
       "type": "string"
     },
     "sa_name": {
-      "defaultValue": "storagename",
-      "type": "string",
-      "minLength": 3,
-      "maxLength": 24
+      "type": "string"
     },
     "connections_azureblob_name": {
       "defaultValue": "azureblob",
       "type": "string"
     }   
-  },
- 
-  "variables": {
-    "storage_account": "[toLower(parameter('sa_name')]",
-    "storage_account": "[concat(resourceGroup().storageName, uniqueString(resourceGroup().id))]"
-  },
+  },  
   
   "resources": [         
     {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
-      "name": "[variables('storage_account')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
-      },
-      "kind": "Storage",
-      "properties": {
-        "networkAcls": {
-          "bypass": "AzureServices",
-          "virtualNetworkRules": [],
-          "ipRules": [],
-          "defaultAction": "Allow"
-        },
-        "supportsHttpsTrafficOnly": true,
-        "encryption": {
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": true
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        }
-      }
-    },
-    {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2021-09-01",
-      "name": "[format('{0}/default/blobs', variables('storage_account'))]",
+      "name": "[format('{0}/default/blobs', parameters('sa_name'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"          
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('sa_name'))]"          
       ],
       "properties": {
         "defaultEncryptionScope": "$account-encryption-key",
@@ -85,13 +44,13 @@
       "location": "[parameters('location')]",
       "kind": "V2",
       "dependsOn": [
-      "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
+      "[resourceId('Microsoft.Storage/storageAccounts', parameters('sa_name'))]"
       ],
       "properties": {
         "displayName": "privatestorage",
         "parameterValues": {
-          "accountName": "[variables('storage_account')]",
-          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('storage_account')), '2019-06-01').keys[0].value]"
+          "accountName": "[parameters('sa_name')]",
+          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', parameters('sa_name')), '2019-06-01').keys[0].value]"
         },
         "api": {
           "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
