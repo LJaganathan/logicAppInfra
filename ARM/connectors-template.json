@@ -14,8 +14,7 @@
     "logicAppSystemAssignedIdentityObjectId": {
       "type": "string"
     },
-    "sa_name": {
-      "defaultValue": "storage name",
+    "sa_name": {      
       "type": "string",
       "minLength": 3,
       "maxLength": 24
