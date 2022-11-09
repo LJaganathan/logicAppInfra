@@ -34,6 +34,7 @@ jobs:
       with:
         # You can change these environment variables for your configuration:   AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP
         scope: subscription
+        region: ${{ secrets.AZURE_LOCATION }}
         subscriptionId: ${{ secrets.AZURE_SUB }}
         #resourceGroupName:  ${{ secrets.RG_LA }}        
         template: ARM/la-template.json  # Set this to the location of your template file
@@ -47,6 +48,7 @@ jobs:
       uses: Azure/arm-deploy@v1.0.1
       with:
         scope: subscription
+        region: ${{ secrets.AZURE_LOCATION }}
         subscriptionId: ${{ secrets.AZURE_SUB }}
         #resourceGroupName: ${{ secrets.RG_LA }}
         template: ARM/connectors-template.json  # Set this to the location of your template file
