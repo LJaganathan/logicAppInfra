@@ -75,8 +75,7 @@
         "location": "[parameters('location')]",
         "dependsOn": [
           "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
-          "[resourceId('Microsoft.Resources/resourceGroups', parameters('resourceGroup'))]" 
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",          
         ],
         "kind": "workflowapp,functionapp",
         "identity": {
