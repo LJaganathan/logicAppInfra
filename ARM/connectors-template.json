@@ -1,10 +1,7 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "resourceGroup":{
-      "type": "string"
-    },
+  "parameters": {    
     "location": {
       "type": "string",
       "metadata": {
@@ -31,14 +28,7 @@
     "storage_account": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]"
   },
   
-  "resources": [    
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
-      "name": "[parameters('resourceGroup')]",
-      "location": "[parameters('location')]",
-      "properties": {}
-    },    
+  "resources": [         
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-09-01",
@@ -77,8 +67,7 @@
       "apiVersion": "2021-09-01",
       "name": "[format('{0}/default/blobs', variables('storage_account'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]",
-        "[resourceId('Microsoft.Resources/resourceGroups', parameters('resourceGroup'))]"     
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"          
       ],
       "properties": {
         "defaultEncryptionScope": "$account-encryption-key",
@@ -110,8 +99,7 @@
       "name": "[format('{0}/{1}', parameters('connections_azureblob_name'), parameters('logicAppSystemAssignedIdentityObjectId'))]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name'))]",
-        "[resourceId('Microsoft.Resources/resourceGroups', parameters('resourceGroup'))]"
+        "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name'))]"        
       ],
       "properties": {
         "principal": {
