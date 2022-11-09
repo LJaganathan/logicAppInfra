@@ -29,7 +29,7 @@
       "apiVersion": "2021-09-01",
       "name": "[format('{0}/default/blobs', parameters('sa_name'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('sa_name'))]"          
+        "[resourceId(parameters('sa_name').id]"          
       ],
       "properties": {
         "defaultEncryptionScope": "$account-encryption-key",
