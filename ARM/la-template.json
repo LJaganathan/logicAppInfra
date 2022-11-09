@@ -58,7 +58,8 @@
         "type": "Microsoft.Web/serverfarms",
         "apiVersion": "2018-02-01",
         "name": "[parameters('appServicePlanName')]",      
-        "location": "[parameters('location')]",        
+        "location": "[parameters('location')]",
+        "properties": {},
         "sku": {
           "name": "WS1",
           "tier": "WorkflowStandard"
