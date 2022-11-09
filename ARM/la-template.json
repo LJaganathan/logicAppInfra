@@ -61,7 +61,7 @@
         "type": "Microsoft.Web/serverfarms",
         "apiVersion": "2018-02-01",
         "name": "[parameters('appServicePlanName')]",
-        "resourceGroup": "[parameters('rg_name')]",
+        "resourceGroup": "[parameters('resourceGroup')]",
         "location": "[parameters('location')]",        
         "sku": {
           "name": "WS1",
