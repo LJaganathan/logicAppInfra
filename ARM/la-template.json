@@ -16,6 +16,7 @@
       },
       "appServicePlanName": {
         "type": "string"
+        "defaultValue": "[concat('',uniqueString(resourcegroup().id))]"
       },
       "storageName": {
         "type": "string",
