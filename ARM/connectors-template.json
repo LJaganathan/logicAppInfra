@@ -14,7 +14,8 @@
     "logicAppSystemAssignedIdentityObjectId": {
       "type": "string"
     },
-    "sa_name": {      
+    "sa_name": {
+      "defaultValue": "storagename",
       "type": "string",
       "minLength": 3,
       "maxLength": 24
@@ -26,7 +27,7 @@
   },
  
   "variables": {
-    "storage_account": "[concat(parameters('sa_name'), uniqueString(resourceGroup().id))]"
+    "storage_account": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]"
   },
   
   "resources": [         
