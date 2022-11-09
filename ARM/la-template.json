@@ -42,13 +42,13 @@
         {
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
+        "name": "[parameters('storageName')]",
+        "location": "[parameters('location')]",
         "sku": {
           "name": "[parameters('skuName')]",
           "tier": "[parameters('skuTier')]"
         },
-        "kind": "[parameters('kind')]",
-        "name": "[parameters('storageName')]",
-        "location": "[parameters('location')]",
+        "kind": "[parameters('kind')]",        
         "tags": {
           "Environment": "[parameters('environmentName')]",
           "Project": "[parameters('projectName')]"
@@ -156,7 +156,7 @@
         "value": "[parameters('logicAppName')]"
       },
       "StorageAccountName": {
-         "type": "string"
+         "type": "string",
          "value": "[parameters('storageName')]"
       }
     }
