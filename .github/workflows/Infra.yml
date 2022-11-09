@@ -37,9 +37,9 @@ jobs:
         region: ${{ secrets.AZURE_LOCATION }}
         subscriptionId: ${{ secrets.AZURE_SUB }}
         #resourceGroupName:  ${{ secrets.RG_LA }}        
-        template: ARM/la-template.json  # Set this to the location of your template file
+        #template: ARM/la-template.json  # Set this to the location of your template file
         #parameters: ARM/la-parameters.json StorageAccountAccessKey=${{ secrets.STORAGEACOUNTACCESSKEY }}        
-        parameters: ARM/la-parameters.json        
+        #parameters: ARM/la-parameters.json        
         deploymentMode: Incremental
    
     # Deployment of template    
