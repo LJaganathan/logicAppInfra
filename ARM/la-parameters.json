@@ -16,9 +16,6 @@
         },
         "storageName": {
             "value": "straccforstndlogicapps"
-        },
-        "StorageAccountAccessKey": {
-            "value": ""
-        }
+        }        
         }
 }
