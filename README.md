@@ -2,7 +2,7 @@
 
 
 
-To Deploy Azure LogicApp(Standard) with 'WS1' 'WorkflowStandard' AppServicePlan along with Storage Account (Single Storage Account only) and 'azureblob' [Kind:"V2"] API Connection.
+To Deploy Azure LogicApp(Standard) with 'WS1' 'WorkflowStandard' AppServicePlan along with Storage Account 'storage-V2' (Single Storage Account only) and 'azureblob' [Kind:"V2"] API Connection.
 
 Using GitHub Action
 
